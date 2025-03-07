@@ -32,8 +32,8 @@ const Root: React.FC<RootProps> = ({ configNumber }) => {
       component={RemotionRoot}
       durationInFrames={150 + (config.products.length * 300) + 150}
       fps={30}
-      width={1920}
-      height={1080}
+      width={1080}
+      height={1920}
       defaultProps={{
         config,
       }}

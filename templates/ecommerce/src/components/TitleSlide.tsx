@@ -111,13 +111,13 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
           position: 'relative',
           zIndex: 1,
           textAlign: 'center',
-          maxWidth: '1000px',
-          padding: '0 40px',
+          maxWidth: '900px',
+          padding: '0 30px',
         }}
       >
         <h1
           style={{
-            fontSize: '6em',
+            fontSize: '4.5em',
             margin: 0,
             color: '#fff',
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -139,7 +139,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
         </h1>
         <h2
           style={{
-            fontSize: '2.5em',
+            fontSize: '2em',
             margin: '20px 0 0',
             color: '#fff',
             fontFamily: 'Helvetica Neue, Arial, sans-serif',

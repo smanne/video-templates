@@ -154,17 +154,17 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '20px',
+          gap: '15px',
           opacity: contentOpacity,
-          maxWidth: '1000px',
+          maxWidth: '900px',
           width: '100%',
-          padding: '40px',
-          marginTop: '40px',
+          padding: '30px',
+          marginTop: '30px',
         }}
       >
         <h2
           style={{
-            fontSize: '3em',
+            fontSize: '2.5em',
             margin: '0',
             textAlign: 'center',
             fontWeight: '700',
@@ -178,8 +178,8 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',
-            fontSize: '2em',
+            gap: '15px',
+            fontSize: '1.8em',
             fontWeight: '600',
             textShadow: '0 2px 8px rgba(0,0,0,0.5)',
           }}
@@ -200,18 +200,18 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
           position: 'relative',
           zIndex: 1,
           opacity: descriptionOpacity,
-          maxWidth: '1000px',
+          maxWidth: '900px',
           width: '100%',
-          padding: '30px 60px',
-          margin: '20px auto',
+          padding: '20px 40px',
+          margin: '15px auto',
           background: 'rgba(0, 0, 0, 0.5)',
-          borderRadius: '20px',
+          borderRadius: '15px',
           border: '1px solid rgba(255, 255, 255, 0.1)',
         }}
       >
         <p
           style={{
-            fontSize: '2em',
+            fontSize: '1.6em',
             lineHeight: 1.4,
             margin: 0,
             textAlign: 'center',
@@ -237,11 +237,11 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
           zIndex: 1,
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px',
+          gap: '15px',
           opacity: contentOpacity,
-          maxWidth: '1000px',
+          maxWidth: '900px',
           width: '100%',
-          padding: '40px',
+          padding: '30px',
           margin: '0 auto',
         }}
       >
@@ -249,21 +249,21 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
         <div
           style={{
             position: 'absolute',
-            bottom: '40px',
-            left: '40px',
-            right: '40px',
+            bottom: '30px',
+            left: '30px',
+            right: '30px',
             opacity: prosOpacity * (1 - prosFadeOut),
             background: 'rgba(0, 0, 0, 0.7)',
-            borderRadius: '20px',
-            padding: '40px',
+            borderRadius: '15px',
+            padding: '30px',
             border: '1px solid rgba(0, 255, 0, 0.3)',
             boxShadow: '0 0 20px rgba(0, 255, 0, 0.1)',
           }}
         >
           <h3
             style={{
-              fontSize: '2.2em',
-              margin: '0 0 25px 0',
+              fontSize: '1.8em',
+              margin: '0 0 20px 0',
               color: '#00ff00',
               fontWeight: '600',
               textShadow: '0 2px 8px rgba(0,0,0,0.5)',
@@ -275,22 +275,22 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px',
+              gap: '15px',
             }}
           >
             {product.pros.map((pro, index) => (
               <div
                 key={index}
                 style={{
-                  fontSize: '1.8em',
+                  fontSize: '1.4em',
                   color: '#ffffff',
                   textShadow: '0 2px 4px rgba(0,0,0,0.3)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '15px',
+                  gap: '12px',
                 }}
               >
-                <span style={{color: '#00ff00', fontSize: '1.4em'}}>✓</span>
+                <span style={{color: '#00ff00', fontSize: '1.2em'}}>✓</span>
                 {pro}
               </div>
             ))}
@@ -301,21 +301,21 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
         <div
           style={{
             position: 'absolute',
-            bottom: '40px',
-            left: '40px',
-            right: '40px',
+            bottom: '30px',
+            left: '30px',
+            right: '30px',
             opacity: consOpacity,
             background: 'rgba(0, 0, 0, 0.7)',
-            borderRadius: '20px',
-            padding: '40px',
+            borderRadius: '15px',
+            padding: '30px',
             border: '1px solid rgba(255, 68, 68, 0.3)',
             boxShadow: '0 0 20px rgba(255, 68, 68, 0.1)',
           }}
         >
           <h3
             style={{
-              fontSize: '2.2em',
-              margin: '0 0 25px 0',
+              fontSize: '1.8em',
+              margin: '0 0 20px 0',
               color: '#ff4444',
               fontWeight: '600',
               textShadow: '0 2px 8px rgba(0,0,0,0.5)',
@@ -327,22 +327,22 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundM
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px',
+              gap: '15px',
             }}
           >
             {product.cons.map((con, index) => (
               <div
                 key={index}
                 style={{
-                  fontSize: '1.8em',
+                  fontSize: '1.4em',
                   color: '#ffffff',
                   textShadow: '0 2px 4px rgba(0,0,0,0.3)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '15px',
+                  gap: '12px',
                 }}
               >
-                <span style={{color: '#ff4444', fontSize: '1.4em'}}>✗</span>
+                <span style={{color: '#ff4444', fontSize: '1.2em'}}>✗</span>
                 {con}
               </div>
             ))}

@@ -37,7 +37,7 @@ export const OutroSlide: React.FC<OutroSlideProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '40px',
+        padding: '30px',
         color: '#fff',
         fontFamily: 'Georgia, serif',
       }}
@@ -51,7 +51,7 @@ export const OutroSlide: React.FC<OutroSlideProps> = ({
       )}
       <h1
         style={{
-          fontSize: '72px',
+          fontSize: '3.5em',
           fontWeight: 700,
           textAlign: 'center',
           marginBottom: '20px',
@@ -66,7 +66,7 @@ export const OutroSlide: React.FC<OutroSlideProps> = ({
       {subtitle && (
         <h2
           style={{
-            fontSize: '36px',
+            fontSize: '1.8em',
             textAlign: 'center',
             opacity,
             fontFamily: 'Helvetica Neue, Arial, sans-serif',
