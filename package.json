@@ -1,0 +1,50 @@
+{
+  "name": "video-templates",
+  "version": "1.0.0",
+  "description": "A collection of video templates for different use cases",
+  "type": "module",
+  "scripts": {
+    "start": "remotion preview src/index.tsx",
+    "build": "remotion render src/index.tsx AmazonProductVideo out/video.mp4",
+    "preview": "remotion preview src/index.tsx --props='{\"configNumber\": \"$1\"}'",
+    "render:all": "npm run render:2 && npm run render:3 && npm run render:4 && npm run render:5",
+    "render:2": "remotion render src/index.tsx AmazonProductVideo out/video2.mp4 --props='{\"configNumber\": \"2\"}'",
+    "render:3": "remotion render src/index.tsx AmazonProductVideo out/video3.mp4 --props='{\"configNumber\": \"3\"}'",
+    "render:4": "remotion render src/index.tsx AmazonProductVideo out/video4.mp4 --props='{\"configNumber\": \"4\"}'",
+    "render:5": "remotion render src/index.tsx AmazonProductVideo out/video5.mp4 --props='{\"configNumber\": \"5\"}'",
+    "ecommerce": "npm run preview",
+    "ecommerce:build": "npm run build",
+    "ecommerce:render": "npm run render:all"
+  },
+  "keywords": [
+    "video",
+    "templates",
+    "remotion",
+    "ecommerce",
+    "fashion",
+    "news"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.133",
+    "puppeteer": "^19.11.1",
+    "axios": "^0.27.2",
+    "cheerio": "^0.22.0",
+    "dotenv": "^16.0.3",
+    "google-tts-api": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
+  }
+}
