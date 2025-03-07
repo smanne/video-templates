@@ -14,7 +14,12 @@
     "ecommerce": "remotion preview templates/ecommerce/src/index.tsx",
     "ecommerce:build": "remotion render templates/ecommerce/src/index.tsx out/ecommerce.mp4",
     "headlines": "remotion preview templates/headlines/src/index.tsx",
-    "headlines:build": "remotion render templates/headlines/src/index.tsx out/headlines.mp4"
+    "headlines:build": "remotion render templates/headlines/src/index.tsx out/headlines.mp4",
+    "fashion": "remotion preview templates/fashion/src/index.tsx",
+    "fashion:build": "remotion render templates/fashion/src/index.tsx out/fashion.mp4",
+    "stock": "remotion preview templates/stock/src/index.tsx",
+    "stock:build": "remotion render templates/stock/src/index.tsx out/stock.mp4",
+    "travel": "remotion preview templates/travel/src/index.tsx"
   },
   "keywords": [
     "video",

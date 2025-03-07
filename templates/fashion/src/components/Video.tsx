@@ -1,24 +1,26 @@
 import React from 'react';
-import { AbsoluteFill, Sequence, staticFile } from 'remotion';
-import { HeadlineSlide } from './HeadlineSlide';
+import { AbsoluteFill, Sequence } from 'remotion';
+import { FashionSlide } from './FashionSlide';
 import { BackgroundMusic } from './BackgroundMusic';
 
-interface Headline {
+interface FashionItem {
   title: string;
   subtitle?: string;
   category: string;
   image?: string;
+  price?: string;
   description?: string;
+  brand?: string;
 }
 
 interface VideoProps {
-  headlines: Headline[];
+  items: FashionItem[];
   backgroundMusic?: string;
 }
 
-export const Video: React.FC<VideoProps> = ({ headlines, backgroundMusic }) => {
+export const Video: React.FC<VideoProps> = ({ items, backgroundMusic }) => {
   const slideDuration = 300; // 10 seconds per slide
-  const totalDuration = headlines.length * slideDuration;
+  const totalDuration = items.length * slideDuration;
 
   return (
     <AbsoluteFill>
@@ -26,15 +28,16 @@ export const Video: React.FC<VideoProps> = ({ headlines, backgroundMusic }) => {
         <BackgroundMusic src={backgroundMusic} volume={0.2} />
       )}
       
-      {headlines.map((headline, index) => (
+      {items.map((item, index) => (
         <Sequence
           key={index}
           from={index * slideDuration}
           durationInFrames={slideDuration}
         >
-          <HeadlineSlide
-            headline={headline}
-            isLast={index === headlines.length - 1}
+          <FashionSlide
+            item={item}
+            backgroundMusic={backgroundMusic}
+            isLast={index === items.length - 1}
           />
         </Sequence>
       ))}

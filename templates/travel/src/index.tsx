@@ -64,8 +64,7 @@ const sampleDestinations = [
       'Book guided tours in advance',
       'Carry water and sunscreen',
       'Allow 2-3 hours for visit'
-    ],
-    voiceOver: staticFile('/voiceovers/amber-fort.mp3')
+    ]
   }
 ];
 
