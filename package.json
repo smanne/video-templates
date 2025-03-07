@@ -1,7 +1,7 @@
 {
-  "name": "amazon-video-gen",
+  "name": "video-templates",
   "version": "1.0.0",
-  "description": "Generate product videos for Amazon listings",
+  "description": "A collection of video templates for different use cases",
   "type": "module",
   "scripts": {
     "start": "remotion preview templates/ecommerce/src/index.tsx",

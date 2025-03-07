@@ -1,11 +1,11 @@
 # Video Templates Collection
 
-A collection of video templates for different use cases built with Remotion.
+A collection of video templates built with Remotion for different use cases.
 
 ## Available Templates
 
 ### E-commerce Template
-A template for creating product showcase videos with features like:
+A template for creating product showcase videos with:
 - Product title and price display
 - Rating and review count
 - Product description with typing animation
@@ -15,29 +15,31 @@ A template for creating product showcase videos with features like:
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+1. Clone the repository:
+```bash
+git clone https://github.com/smanne/video-templates.git
+cd video-templates
+```
 
-3. Run the template:
-   ```bash
-   # For e-commerce template
-   npm run ecommerce
-   ```
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the e-commerce template:
+```bash
+npm run ecommerce
+```
 
 ## Project Structure
 
 ```
 video-templates/
-├── templates/             # Template-specific components
-│   └── ecommerce/        # E-commerce template
-│       └── src/         # Source code for e-commerce template
-├── public/               # Static assets
-├── package.json          # Project dependencies and scripts
-├── tsconfig.json         # TypeScript configuration
-└── .babelrc             # Babel configuration
+├── templates/
+│   └── ecommerce/
+│       └── src/           # E-commerce template source code
+├── package.json
+└── README.md
 ```
 
 ## Creating New Templates
@@ -45,8 +47,8 @@ video-templates/
 To create a new template:
 1. Create a new directory under `templates/`
 2. Create a `src` directory for your template's source code
-3. Add new scripts to package.json if needed
-4. Update the main source code to use the new template components
+3. Add your template-specific components and configuration
+4. Update the scripts in `package.json` to include your template
 
 ## License
 
