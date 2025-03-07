@@ -31,9 +31,9 @@ A template for creating product showcase videos with features like:
 
 ```
 video-templates/
-├── src/                    # Main source code
 ├── templates/             # Template-specific components
-│   └── ecommerce/        # E-commerce template components
+│   └── ecommerce/        # E-commerce template
+│       └── src/         # Source code for e-commerce template
 ├── public/               # Static assets
 ├── package.json          # Project dependencies and scripts
 ├── tsconfig.json         # TypeScript configuration
@@ -44,7 +44,7 @@ video-templates/
 
 To create a new template:
 1. Create a new directory under `templates/`
-2. Create template-specific components
+2. Create a `src` directory for your template's source code
 3. Add new scripts to package.json if needed
 4. Update the main source code to use the new template components
 
