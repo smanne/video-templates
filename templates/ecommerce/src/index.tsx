@@ -21,11 +21,11 @@ interface RootProps {
 const Root: React.FC<RootProps> = ({ configNumber }) => {
   console.log('Received configNumber:', configNumber);
   
-  const configKey = (configNumber || '5') as ConfigKey;
+  const configKey = (configNumber || '4') as ConfigKey;
   const config = configs[configKey] || config3;
   console.log('Selected Config Title:', config.titleSlide.title);
   
   return <RemotionRoot config={config} />;
-};
+}
 
-registerRoot(Root); 
+registerRoot(Root);

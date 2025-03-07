@@ -37,7 +37,7 @@ export const RemotionRoot: React.FC<RemotionRootProps> = ({ config }) => {
   return (
     <>
       <Composition
-        id="AmazonProductVideo"
+        id="AmazonProductVideo" 
         component={AmazonProductVideo}
         durationInFrames={150 + (config.products.length * 150)}
         fps={30}
