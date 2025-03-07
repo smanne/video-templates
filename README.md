@@ -1,17 +1,27 @@
 # Video Templates Collection
 
-A collection of video templates built with Remotion for different use cases.
+A collection of video templates built with Remotion.
 
 ## Available Templates
 
 ### E-commerce Template
-A template for creating product showcase videos with:
+A professional product showcase template featuring:
 - Product title and price display
 - Rating and review count
 - Product description with typing animation
 - Pros and cons sections with fade transitions
 - Background music support
 - Multiple product configurations
+
+### Headlines Template
+A dynamic news headlines template featuring:
+- Breaking news style presentation
+- Category badges
+- Timestamp display
+- Background images with overlay
+- Smooth animations and transitions
+- Background music support
+- Breaking news banner (except on last slide)
 
 ## Getting Started
 
@@ -26,9 +36,13 @@ cd video-templates
 npm install
 ```
 
-3. Run the e-commerce template:
+3. Run a template:
 ```bash
+# For E-commerce template
 npm run ecommerce
+
+# For Headlines template
+npm run headlines
 ```
 
 ## Project Structure
@@ -36,8 +50,10 @@ npm run ecommerce
 ```
 video-templates/
 ├── templates/
-│   └── ecommerce/
-│       └── src/           # E-commerce template source code
+│   ├── ecommerce/
+│   │   └── src/           # E-commerce template source code
+│   └── headlines/
+│       └── src/           # Headlines template source code
 ├── package.json
 └── README.md
 ```
@@ -47,8 +63,8 @@ video-templates/
 To create a new template:
 1. Create a new directory under `templates/`
 2. Create a `src` directory for your template's source code
-3. Add your template-specific components and configuration
-4. Update the scripts in `package.json` to include your template
+3. Add your template's components and entry point
+4. Update `package.json` with new scripts for your template
 
 ## License
 

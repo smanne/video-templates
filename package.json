@@ -4,17 +4,17 @@
   "description": "A collection of video templates for different use cases",
   "type": "module",
   "scripts": {
-    "start": "remotion preview templates/ecommerce/src/index.tsx",
-    "build": "remotion render templates/ecommerce/src/index.tsx AmazonProductVideo out/video.mp4",
-    "preview": "remotion preview templates/ecommerce/src/index.tsx --props='{\"configNumber\": \"$1\"}'",
-    "render:all": "npm run render:2 && npm run render:3 && npm run render:4 && npm run render:5",
-    "render:2": "remotion render templates/ecommerce/src/index.tsx AmazonProductVideo out/video2.mp4 --props='{\"configNumber\": \"2\"}'",
-    "render:3": "remotion render templates/ecommerce/src/index.tsx AmazonProductVideo out/video3.mp4 --props='{\"configNumber\": \"3\"}'",
-    "render:4": "remotion render templates/ecommerce/src/index.tsx AmazonProductVideo out/video4.mp4 --props='{\"configNumber\": \"4\"}'",
-    "render:5": "remotion render templates/ecommerce/src/index.tsx AmazonProductVideo out/video5.mp4 --props='{\"configNumber\": \"5\"}'",
-    "ecommerce": "npm run preview",
-    "ecommerce:build": "npm run build",
-    "ecommerce:render": "npm run render:all"
+    "start": "remotion studio templates/ecommerce/src/index.tsx",
+    "build": "remotion render templates/ecommerce/src/index.tsx out/video.mp4",
+    "preview": "remotion preview templates/ecommerce/src/index.tsx",
+    "render:2": "remotion render templates/ecommerce/src/index.tsx out/video-2.mp4 --props='{\"config\": 2}'",
+    "render:3": "remotion render templates/ecommerce/src/index.tsx out/video-3.mp4 --props='{\"config\": 3}'",
+    "render:4": "remotion render templates/ecommerce/src/index.tsx out/video-4.mp4 --props='{\"config\": 4}'",
+    "render:5": "remotion render templates/ecommerce/src/index.tsx out/video-5.mp4 --props='{\"config\": 5}'",
+    "ecommerce": "remotion preview templates/ecommerce/src/index.tsx",
+    "ecommerce:build": "remotion render templates/ecommerce/src/index.tsx out/ecommerce.mp4",
+    "headlines": "remotion preview templates/headlines/src/index.tsx",
+    "headlines:build": "remotion render templates/headlines/src/index.tsx out/headlines.mp4"
   },
   "keywords": [
     "video",
