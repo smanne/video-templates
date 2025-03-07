@@ -1,0 +1,87 @@
+{
+  "titleSlide": {
+    "title": "Ultimate Gaming Setup",
+    "subtitle": "Level Up Your Gaming Experience",
+    "backgroundImages": [
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080",
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080",
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080"
+    ]
+  },
+  "products": [
+    {
+      "title": "Razer BlackShark V2 Pro",
+      "price": "$199.99",
+      "rating": 4.8,
+      "reviewCount": 5600,
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080",
+      "description": "Professional-grade wireless gaming headset with THX 7.1 surround sound and advanced noise-canceling microphone.",
+      "pros": [
+        "Crystal clear audio",
+        "Comfortable for long sessions",
+        "Wireless freedom",
+        "Great microphone quality",
+        "RGB lighting effects"
+      ],
+      "cons": [
+        "Premium price",
+        "Battery life could be better",
+        "Heavy weight",
+        "Limited color options",
+        "Complex software setup"
+      ]
+    },
+    {
+      "title": "Logitech G Pro X Superlight",
+      "price": "$149.99",
+      "rating": 4.9,
+      "reviewCount": 7200,
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080",
+      "description": "Ultra-lightweight wireless gaming mouse with HERO 25K sensor and optimized for competitive gaming.",
+      "pros": [
+        "Extremely lightweight",
+        "Precise tracking",
+        "Long battery life",
+        "Ergonomic design",
+        "Customizable buttons"
+      ],
+      "cons": [
+        "Expensive",
+        "No RGB lighting",
+        "Limited grip options",
+        "Requires charging",
+        "Small size may not suit all"
+      ]
+    },
+    {
+      "title": "ASUS ROG Swift PG279QM",
+      "price": "$999.99",
+      "rating": 4.7,
+      "reviewCount": 3800,
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1080",
+      "description": "27-inch 4K gaming monitor with 240Hz refresh rate, G-Sync Ultimate, and HDR support.",
+      "pros": [
+        "High refresh rate",
+        "Excellent color accuracy",
+        "G-Sync Ultimate",
+        "HDR support",
+        "Sharp 4K resolution"
+      ],
+      "cons": [
+        "Very expensive",
+        "High power consumption",
+        "Large size",
+        "Requires powerful GPU",
+        "Limited viewing angles"
+      ]
+    }
+  ],
+  "audio": {
+    "backgroundMusic": "https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a73467.mp3?filename=background-music-for-video-1-124822.mp3",
+    "volume": 0.8,
+    "startFrom": 0,
+    "endAt": 30,
+    "playbackRate": 1,
+    "loop": true
+  }
+} 

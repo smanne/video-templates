@@ -1,0 +1,87 @@
+{
+  "titleSlide": {
+    "title": "Smart Home Essentials",
+    "subtitle": "Transform Your Living Space",
+    "backgroundImages": [
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080",
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080",
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080"
+    ]
+  },
+  "products": [
+    {
+      "title": "Philips Hue Smart Bulb Starter Kit",
+      "price": "$199.99",
+      "rating": 4.8,
+      "reviewCount": 8900,
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080",
+      "description": "Complete smart lighting system with color-changing bulbs, bridge, and voice control support.",
+      "pros": [
+        "16 million colors",
+        "Voice control",
+        "Energy efficient",
+        "Easy setup",
+        "Reliable connection"
+      ],
+      "cons": [
+        "Premium price",
+        "Requires bridge",
+        "Limited range",
+        "Dependent on WiFi",
+        "App can be complex"
+      ]
+    },
+    {
+      "title": "Nest Learning Thermostat",
+      "price": "$249.99",
+      "rating": 4.9,
+      "reviewCount": 12000,
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080",
+      "description": "Smart thermostat that learns your schedule and helps save energy automatically.",
+      "pros": [
+        "Energy savings",
+        "Learning capability",
+        "Remote control",
+        "Eco-friendly",
+        "Easy installation"
+      ],
+      "cons": [
+        "High initial cost",
+        "Requires C-wire",
+        "Limited compatibility",
+        "Privacy concerns",
+        "Learning curve"
+      ]
+    },
+    {
+      "title": "Ring Video Doorbell Pro",
+      "price": "$249.99",
+      "rating": 4.7,
+      "reviewCount": 15000,
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=1080",
+      "description": "Advanced video doorbell with HD video, motion detection, and two-way audio.",
+      "pros": [
+        "HD video quality",
+        "Motion detection",
+        "Two-way audio",
+        "Cloud storage",
+        "Easy installation"
+      ],
+      "cons": [
+        "Subscription required",
+        "Battery life limited",
+        "WiFi dependent",
+        "Privacy concerns",
+        "Monthly fee"
+      ]
+    }
+  ],
+  "audio": {
+    "backgroundMusic": "https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a73467.mp3?filename=background-music-for-video-1-124822.mp3",
+    "volume": 0.8,
+    "startFrom": 0,
+    "endAt": 30,
+    "playbackRate": 1,
+    "loop": true
+  }
+} 
