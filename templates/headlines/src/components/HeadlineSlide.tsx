@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { BackgroundMusic } from './BackgroundMusic';
 
@@ -7,7 +7,7 @@ interface Headline {
   subtitle?: string;
   category: string;
   image?: string;
-  timestamp: string;
+  description?: string;
 }
 
 interface HeadlineSlideProps {
@@ -23,6 +23,8 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   
   const slideOpacity = spring({
     frame,
@@ -64,6 +66,22 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
     },
   });
 
+  const descriptionOpacity = spring({
+    frame: frame - 60,
+    fps,
+    config: {
+      damping: 200,
+      stiffness: 200,
+      mass: 0.5,
+    },
+  });
+
+  // Continuous movement animations
+  const moveX = (frame / fps) * 2.5; // 2.5 pixels per second (was 5)
+  const moveY = (frame / fps) * 1.5; // 1.5 pixels per second (was 3)
+  const scale = 1 + (frame / fps) * 0.01; // 1% scale increase per second (was 2%)
+  const rotate = (frame / fps) * 0.5; // 0.5 degree per second (was 1)
+
   return (
     <AbsoluteFill
       style={{
@@ -96,7 +114,7 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
           zIndex: 0,
         }}
       >
-        {headline.image ? (
+        {headline.image && !imageError ? (
           <>
             <img
               src={headline.image}
@@ -105,7 +123,12 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.5s ease-in-out',
+                transform: `scale(${scale}) translate(${moveX}px, ${moveY}px) rotate(${rotate}deg)`,
               }}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
             />
             <div
               style={{
@@ -115,6 +138,8 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
                 right: 0,
                 bottom: 0,
                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%)',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.5s ease-in-out',
               }}
             />
           </>
@@ -138,7 +163,7 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
           backgroundColor: '#ff4444',
           padding: '8px 16px',
           borderRadius: '20px',
-          marginTop: '40px',
+          marginTop: '80px',
           fontSize: '1.2em',
           fontWeight: '600',
           textTransform: 'uppercase',
@@ -154,7 +179,7 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
           position: 'relative',
           zIndex: 1,
           textAlign: 'center',
-          maxWidth: '900px',
+          maxWidth: '800px',
           padding: '0 30px',
           marginTop: '40px',
         }}
@@ -191,51 +216,34 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
         )}
       </div>
 
-      {/* Timestamp */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '30px',
-          right: '30px',
-          zIndex: 1,
-          opacity: contentOpacity,
-          fontSize: '1.2em',
-          color: '#888',
-          fontFamily: 'Helvetica Neue, Arial, sans-serif',
-        }}
-      >
-        {headline.timestamp}
-      </div>
-
-      {/* Breaking News Banner */}
-      {!isLast && (
+      {/* Description */}
+      {headline.description && (
         <div
           style={{
             position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
+            bottom: '160px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             zIndex: 1,
-            opacity: spring({
-              frame: frame - 60,
-              fps,
-              config: {
-                damping: 200,
-                stiffness: 200,
-                mass: 0.5,
-              },
-            }),
-            backgroundColor: '#ff4444',
+            opacity: descriptionOpacity,
+            maxWidth: '1600px',
+            width: '90%',
+            padding: '30px 80px',
+            fontSize: '2.2em',
             color: '#fff',
-            padding: '10px',
+            fontFamily: 'Helvetica Neue, Arial, sans-serif',
+            fontWeight: 400,
+            lineHeight: '1.4',
             textAlign: 'center',
-            fontSize: '1.4em',
-            fontWeight: '600',
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+            letterSpacing: '0.02em',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            borderRadius: '20px',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)',
           }}
         >
-          Breaking News
+          {headline.description}
         </div>
       )}
     </AbsoluteFill>
