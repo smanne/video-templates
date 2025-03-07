@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { BackgroundMusic } from './BackgroundMusic';
 
-interface Headline {
+interface FashionItem {
   title: string;
   subtitle?: string;
   category: string;
   image?: string;
+  price?: string;
   description?: string;
+  brand?: string;
+  trendNumber?: number;
 }
 
-interface HeadlineSlideProps {
-  headline: Headline;
+interface FashionSlideProps {
+  item: FashionItem;
   backgroundMusic?: string;
   isLast?: boolean;
 }
 
-export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
-  headline,
+export const FashionSlide: React.FC<FashionSlideProps> = ({
+  item,
   backgroundMusic,
   isLast = false,
 }) => {
@@ -76,10 +79,10 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
     },
   });
 
-  // Background image animation
+  // Slow panning animation for background image
   const moveX = (frame / fps) * 2.5;
   const moveY = (frame / fps) * 1.5;
-  const scale = 1.2 + (frame / fps) * 0.01; // Increased base scale to 1.2
+  const scale = 1.2 + (frame / fps) * 0.01;
   const rotate = (frame / fps) * 0.5;
 
   return (
@@ -90,7 +93,7 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
         alignItems: 'center',
         backgroundColor: '#000',
         color: 'white',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif',
+        fontFamily: 'Helvetica Neue, Arial, sans-serif',
         overflow: 'hidden',
         opacity: slideOpacity,
       }}
@@ -103,26 +106,26 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
         />
       )}
 
-      {/* Background Image Container */}
+      {/* Background Image or Gradient */}
       <div
         style={{
           position: 'absolute',
-          top: '-10%', // Extend beyond container
-          left: '-10%', // Extend beyond container
-          right: '-10%', // Extend beyond container
-          bottom: '-10%', // Extend beyond container
+          top: '-10%',
+          left: '-10%',
+          right: '-10%',
+          bottom: '-10%',
           zIndex: 0,
           overflow: 'hidden',
         }}
       >
-        {headline.image && !imageError ? (
+        {item.image && !imageError ? (
           <>
             <img
-              src={headline.image}
-              alt={headline.title}
+              src={item.image}
+              alt={item.title}
               style={{
-                width: '120%', // Larger than container
-                height: '120%', // Larger than container
+                width: '120%',
+                height: '120%',
                 objectFit: 'cover',
                 opacity: imageLoaded ? 1 : 0,
                 transition: 'opacity 0.5s ease-in-out',
@@ -139,7 +142,7 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%)',
+                background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%)',
                 opacity: imageLoaded ? 1 : 0,
                 transition: 'opacity 0.5s ease-in-out',
               }}
@@ -156,23 +159,54 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
         )}
       </div>
 
+      {/* Trend Number */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '40px',
+          left: '40px',
+          zIndex: 1,
+          opacity: contentOpacity,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '20px',
+        }}
+      >
+        {item.trendNumber && (
+          <div
+            style={{
+              fontSize: '8em',
+              fontWeight: '700',
+              color: '#fff',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+              opacity: 0.5,
+              fontStyle: 'italic',
+            }}
+          >
+            #{item.trendNumber}
+          </div>
+        )}
+      </div>
+
       {/* Category Badge */}
       <div
         style={{
           position: 'relative',
           zIndex: 1,
           opacity: contentOpacity,
-          backgroundColor: '#ff4444',
-          padding: '8px 16px',
-          borderRadius: '20px',
-          marginTop: '80px',
-          fontSize: '1.2em',
+          backgroundColor: 'rgba(255,255,255,0.1)',
+          padding: '12px 30px',
+          borderRadius: '30px',
+          marginTop: '160px',
+          fontSize: '2em',
           fontWeight: '600',
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
+          backdropFilter: 'blur(10px)',
+          border: '2px solid rgba(255,255,255,0.2)',
         }}
       >
-        {headline.category}
+        {item.category}
       </div>
 
       {/* Main Content */}
@@ -181,45 +215,68 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
           position: 'relative',
           zIndex: 1,
           textAlign: 'center',
-          maxWidth: '800px',
+          maxWidth: '1000px',
           padding: '0 30px',
           marginTop: '40px',
         }}
       >
         <h1
           style={{
-            fontSize: '3.5em',
+            fontSize: '5em',
             margin: '0',
             color: '#fff',
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-            fontWeight: 700,
+            fontWeight: 600,
             letterSpacing: '-0.02em',
             transform: `scale(${titleScale})`,
             opacity: contentOpacity,
+            textTransform: 'uppercase',
+            lineHeight: '1.1',
           }}
         >
-          {headline.title}
+          {item.title}
         </h1>
-        {headline.subtitle && (
+        {item.subtitle && (
           <h2
             style={{
-              fontSize: '1.8em',
-              margin: '20px 0 0',
+              fontSize: '2.5em',
+              margin: '30px 0 0',
               color: '#fff',
-              fontFamily: 'Helvetica Neue, Arial, sans-serif',
               fontWeight: 300,
               letterSpacing: '0.02em',
               textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
               opacity: subtitleOpacity,
+              fontStyle: 'italic',
             }}
           >
-            {headline.subtitle}
+            {item.subtitle}
           </h2>
         )}
       </div>
 
+      {/* Price */}
+      {item.price && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '40px',
+            zIndex: 1,
+            opacity: contentOpacity,
+            fontSize: '3em',
+            fontWeight: '300',
+            color: '#fff',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+            transform: 'rotate(90deg)',
+            transformOrigin: 'right center',
+          }}
+        >
+          {item.price}
+        </div>
+      )}
+
       {/* Description */}
-      {headline.description && (
+      {item.description && (
         <div
           style={{
             position: 'absolute',
@@ -228,24 +285,24 @@ export const HeadlineSlide: React.FC<HeadlineSlideProps> = ({
             transform: 'translateX(-50%)',
             zIndex: 1,
             opacity: descriptionOpacity,
-            maxWidth: '1600px',
+            maxWidth: '1800px',
             width: '90%',
-            padding: '30px 80px',
-            fontSize: '2.2em',
+            padding: '40px 60px',
+            fontSize: '2.8em',
             color: '#fff',
-            fontFamily: 'Helvetica Neue, Arial, sans-serif',
-            fontWeight: 400,
+            fontWeight: 300,
             lineHeight: '1.4',
             textAlign: 'center',
             textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
             letterSpacing: '0.02em',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            borderRadius: '20px',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            borderRadius: '30px',
             backdropFilter: 'blur(10px)',
             boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)',
+            border: '2px solid rgba(255,255,255,0.1)',
           }}
         >
-          {headline.description}
+          {item.description}
         </div>
       )}
     </AbsoluteFill>
