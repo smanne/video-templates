@@ -1,15 +1,19 @@
+import React from 'react';
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
+import { BackgroundMusic } from './BackgroundMusic';
 
 interface TitleSlideProps {
   title: string;
   subtitle: string;
   backgroundImages: string[];
+  backgroundMusic?: string;
 }
 
 export const TitleSlide: React.FC<TitleSlideProps> = ({
   title,
   subtitle,
   backgroundImages,
+  backgroundMusic,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -43,8 +47,17 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
+        fontFamily: 'Georgia, serif',
       }}
     >
+      {backgroundMusic && (
+        <BackgroundMusic
+          src={backgroundMusic}
+          volume={0.3}
+          startFrom={0}
+        />
+      )}
+
       {/* Background Images Container */}
       <div
         style={{
@@ -104,10 +117,13 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
       >
         <h1
           style={{
-            fontSize: '5em',
+            fontSize: '6em',
             margin: 0,
             color: '#fff',
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+            fontFamily: 'Georgia, serif',
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
             opacity: spring({
               frame,
               fps,
@@ -126,7 +142,9 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
             fontSize: '2.5em',
             margin: '20px 0 0',
             color: '#fff',
+            fontFamily: 'Helvetica Neue, Arial, sans-serif',
             fontWeight: 300,
+            letterSpacing: '0.02em',
             textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
             opacity: spring({
               frame: frame - 10,

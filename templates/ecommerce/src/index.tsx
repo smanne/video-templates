@@ -1,5 +1,6 @@
-import { registerRoot } from 'remotion';
-import { RemotionRoot } from './RemotionRoot';
+import React from 'react';
+import { registerRoot, Composition } from 'remotion';
+import { RemotionRoot } from './components/RemotionRoot';
 import config2 from './config/videoConfig2.json';
 import config3 from './config/videoConfig3.json';
 import config4 from './config/videoConfig4.json';
@@ -21,11 +22,23 @@ interface RootProps {
 const Root: React.FC<RootProps> = ({ configNumber }) => {
   console.log('Received configNumber:', configNumber);
   
-  const configKey = (configNumber || '4') as ConfigKey;
+  const configKey = (configNumber || '3') as ConfigKey;
   const config = configs[configKey] || config3;
   console.log('Selected Config Title:', config.titleSlide.title);
   
-  return <RemotionRoot config={config} />;
+  return (
+    <Composition
+      id="EcommerceVideo"
+      component={RemotionRoot}
+      durationInFrames={150 + (config.products.length * 300) + 150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        config,
+      }}
+    />
+  );
 }
 
 registerRoot(Root);

@@ -1,4 +1,6 @@
+import React from 'react';
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { BackgroundMusic } from './BackgroundMusic';
 
 interface Product {
   title: string;
@@ -13,9 +15,10 @@ interface Product {
 
 interface ProductSlideProps {
   product: Product;
+  backgroundMusic?: string;
 }
 
-export const ProductSlide: React.FC<ProductSlideProps> = ({ product }) => {
+export const ProductSlide: React.FC<ProductSlideProps> = ({ product, backgroundMusic }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   
@@ -51,7 +54,7 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product }) => {
   });
 
   const prosFadeOut = spring({
-    frame: frame - 75, // Start fading out pros at 2.5 seconds
+    frame: frame - 150, // Start fading out pros at 2 seconds (was 2.5)
     fps,
     config: {
       damping: 200,
@@ -61,7 +64,7 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product }) => {
   });
 
   const consOpacity = spring({
-    frame: frame - 90, // Start showing cons after pros fade out
+    frame: frame - 155, // Start showing cons after pros fade out (was 3 seconds)
     fps,
     config: {
       damping: 200,
@@ -102,6 +105,14 @@ export const ProductSlide: React.FC<ProductSlideProps> = ({ product }) => {
         opacity: slideOpacity,
       }}
     >
+      {backgroundMusic && (
+        <BackgroundMusic
+          src={backgroundMusic}
+          volume={0.3}
+          startFrom={0}
+        />
+      )}
+
       {/* Full-screen background image */}
       <div
         style={{
